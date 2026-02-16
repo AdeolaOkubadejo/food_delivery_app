@@ -8,10 +8,11 @@ export interface MenuItem extends Models.Document {
     calories: number;
     protein: number;
     rating: number;
-    type: string;
+    type?: string;
 }
 
 export interface Category extends Models.Document {
+    $id?: string;
     name: string;
     description: string;
 }
