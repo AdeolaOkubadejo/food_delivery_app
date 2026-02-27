@@ -6,6 +6,8 @@ A complete food delivery mobile app built with **React Native (Expo)** for the f
 ![Recommended Foods](screenshots/recommended.png)  
 ![Profile](screenshots/profile.png)  
 ![Login](screenshots/login.png)
+![Search](screenshots/search.png)
+
 
 ## Features Built
 
@@ -36,6 +38,10 @@ A complete food delivery mobile app built with **React Native (Expo)** for the f
 
 **Tools & Services**  
 - Expo EAS (builds & distribution)  
+
+https://github.com/user-attachments/assets/711f98d6-7b15-4c28-aaee-d0a14255a4b6
+
+
 - GitHub (version control)  
 - (Planned: Render for live backend, Cloudinary for images)
 
