@@ -1,4 +1,4 @@
-# Food Delivery App – Full-Stack Mobile MVP
+<img width="1179" height="2556" alt="screenshots:home" src="https://github.com/user-attachments/assets/b188ab85-8917-4844-bb3f-78976f37ab43" /># Food Delivery App – Full-Stack Mobile MVP
 
 A complete food delivery mobile app built with **React Native (Expo)** for the frontend and **FastAPI + PostgreSQL** for the backend. Includes authentication, real database menu, personalized recommendations, cart, profile, and polished UI.
 
@@ -7,6 +7,7 @@ A complete food delivery mobile app built with **React Native (Expo)** for the f
 ![Profile](screenshots/profile.png)  
 ![Login](screenshots/login.png)
 ![Search](screenshots/search.png)
+
 
 
 ## Features Built
