@@ -1,50 +1,54 @@
-# Welcome to your Expo app 👋
+# Food Delivery App – Full-Stack Mobile MVP
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A complete food delivery mobile app built with **React Native (Expo)** for the frontend and **FastAPI + PostgreSQL** for the backend. Includes authentication, real database menu, personalized recommendations, cart, profile, and polished UI.
 
-## Get started
+![Home Screen](screenshots/home.png)  
+![Recommended Foods](screenshots/recommended.png)  
+![Profile](screenshots/profile.png)  
+![Login](screenshots/login.png)
 
-1. Install dependencies
+## Features Built
 
-   ```bash
-   npm install
-   ```
+- JWT authentication (register/login, auto-login with SecureStore)
+- Real PostgreSQL menu (seeded with real food items + images)
+- Cosine similarity "Recommended for You" (based on cart contents)
+- Cart persistence (add/remove/increase/decrease)
+- Profile showing real user data (name, email, phone/address)
+- Clean, responsive UI with NativeWind + Tailwind CSS
+- Production Android build (AAB/APK) via Expo EAS
 
-2. Start the app
+## Tech Stack
 
-   ```bash
-   npx expo start
-   ```
+**Frontend**  
+- Expo (SDK 50+)  
+- React Native  
+- Expo Router (file-based routing)  
+- Zustand (state management)  
+- Expo SecureStore (token storage)  
+- NativeWind + Tailwind CSS  
+- React Native Safe Area Context  
 
-In the output, you'll find options to open the app in a
+**Backend**  
+- FastAPI (Python)  
+- SQLAlchemy + PostgreSQL  
+- PyJWT (authentication)  
+- Uvicorn server  
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+**Tools & Services**  
+- Expo EAS (builds & distribution)  
+- GitHub (version control)  
+- (Planned: Render for live backend, Cloudinary for images)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## How to Run Locally
 
-## Get a fresh project
-
-When you're ready, run:
-
+### Backend
 ```bash
-npm run reset-project
-```
+cd backend
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+cd frontend
+npm install
+npx expo start --clear
+# Press i (iOS simulator) or a (Android emulator)
