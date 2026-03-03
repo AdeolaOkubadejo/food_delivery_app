@@ -45,6 +45,25 @@ import starlitsushi from "@/assets/images/starlitsushi.png";
 import tomatoes from "@/assets/images/tomatoes.png";
 import velvettaco from "@/assets/images/velvettaco.png";
 
+
+
+export const COMBO_TO_FOODS: Record<string, string[]> = {
+    "AURORA COMBO": [
+        "Pepperoni Pizza", "Classic Margherita Pizza", "Paneer Tikka Wrap", "Chicken Caesar Wrap",
+    ],
+    "BURGER GLOW": [
+        "Classic Cheeseburger", "BBQ Bacon Burger", "Double Patty Burger", // burgers
+    ],
+    "VELVET TACO": [
+        "Bean Burrito", "Paneer Burrito", // burritos
+    ],
+    "STAR SUSHI": [
+        "Grilled Veggie Sandwich", "Spicy Chicken Sandwich", "Protein Power Bowl" // add sushi if you have, or leave empty for now
+    ],
+};
+
+
+
 export const CATEGORIES = [
     {
         id: "1",

@@ -11,6 +11,8 @@ type AuthState = {
     setLoading: (loading: boolean) => void;
 
     fetchAuthenticatedUser: () => Promise<void>;
+
+    logout: () => void;
 }
 
 const useAuthStore = create<AuthState>((set) => ({
@@ -26,24 +28,18 @@ const useAuthStore = create<AuthState>((set) => ({
         set({ isLoading: true });
 
         try {
-            // Fake user that matches your User type (including required avatar)
-            const fakeUser: User = {
-                name: 'Test User',
-                email: 'test@example.com',
-                avatar: 'https://ui-avatars.com/api/?name=Test+User&background=0D8ABC&color=fff',  // required field added
-                // If TS complains about more Document fields, add them too:
-                // $createdAt: new Date().toISOString(),
-                // $updatedAt: new Date().toISOString(),
-            };
-
-            set({ isAuthenticated: true, user: fakeUser });
+            // TODO: Real session check later (e.g. AsyncStorage or API call)
+            // For now: always start logged OUT on app start/reload
+            set({ isAuthenticated: false, user: null });
         } catch (e) {
             console.log('fetchAuthenticatedUser error', e);
             set({ isAuthenticated: false, user: null });
         } finally {
             set({ isLoading: false });
         }
-    }
+    },
+
+    logout: () => set({ isAuthenticated: false, user: null }),
 }))
 
 export default useAuthStore;

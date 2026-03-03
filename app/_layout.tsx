@@ -1,33 +1,14 @@
-import { SplashScreen, Stack } from "expo-router";
-import './globals.css';
-import { useEffect } from "react";
-import { useFonts } from "expo-font";
-import * as Sentry from '@sentry/react-native';
+import { SplashScreen, Stack } from "expo-router"
+import './globals.css'
+import { useEffect, useState } from "react"
+import { useFonts } from "expo-font"
+import { SafeAreaProvider } from "react-native-safe-area-context"
+import useAuthStore from "@/auth.store"
+import * as SecureStore from 'expo-secure-store'
+import { View, Text } from 'react-native'
 
-Sentry.init({
-  dsn: 'https://73370a328b61ef397281c71cbf5b7d5e@o4507488896352256.ingest.de.sentry.io/4510802215567440',
-
-  // Adds more context data to events (IP address, cookies, user, etc.)
-  // For more information, visit: https://docs.sentry.io/platforms/react-native/data-management/data-collected/
-  sendDefaultPii: true,
-
-  // Enable Logs
-  enableLogs: true,
-
-  // Configure Session Replay
-  replaysSessionSampleRate: 0.1,
-  replaysOnErrorSampleRate: 1,
-  integrations: [Sentry.mobileReplayIntegration(), Sentry.feedbackIntegration()],
-
-  // uncomment the line below to enable Spotlight (https://spotlightjs.com)
-  // spotlight: __DEV__,
-});
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import useAuthStore from "@/auth.store";  // ← ADD THIS IMPORT
-
-export default Sentry.wrap(function RootLayout() {
-
-  const { isLoading, fetchAuthenticatedUser } = useAuthStore();
+export default function RootLayout() {
+  const { setIsAuthenticated, setUser } = useAuthStore()
 
   const [fontsLoaded, error] = useFonts({
     "Quicksand-Bold": require('../assets/fonts/Quicksand-Bold.ttf'),
@@ -35,22 +16,60 @@ export default Sentry.wrap(function RootLayout() {
     "Quicksand-Regular": require('../assets/fonts/Quicksand-Regular.ttf'),
     "Quicksand-SemiBold": require('../assets/fonts/Quicksand-SemiBold.ttf'),
     "Quicksand-Light": require('../assets/fonts/Quicksand-Light.ttf'),
-  });
+  })
+
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    if (error) throw error;
-    if (fontsLoaded) SplashScreen.hideAsync();
-  }, [fontsLoaded, error]);
+    if (error) throw error
+    if (fontsLoaded) SplashScreen.hideAsync()
+  }, [fontsLoaded, error])
 
   useEffect(() => {
-  fetchAuthenticatedUser()
-}, []);
+    const init = async () => {
+      try {
+        const token = await SecureStore.getItemAsync('access_token')
+        if (!token) {
+          setIsAuthenticated(false)
+          setReady(true)
+          return
+        }
 
-  if(!fontsLoaded || isLoading) return null;
+        const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/me`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
 
-return (
+        if (response.ok) {
+          const data = await response.json()
+          setIsAuthenticated(true)
+          setUser(data)
+        } else {
+          await SecureStore.deleteItemAsync('access_token')
+          setIsAuthenticated(false)
+        }
+      } catch (err) {
+        console.log('Init error:', err)
+        await SecureStore.deleteItemAsync('access_token')
+        setIsAuthenticated(false)
+      } finally {
+        setReady(true)
+      }
+    }
+
+    init()
+  }, [])
+
+  if (!fontsLoaded || !ready) {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Loading...</Text>
+        </View>
+    )
+  }
+
+  return (
       <SafeAreaProvider>
         <Stack screenOptions={{ headerShown: false }} />
       </SafeAreaProvider>
-  );
-});
+  )
+}

@@ -34,6 +34,7 @@ const dummyData = {
 
     menu: [
         {
+            id: "classic-cheeseburger",
             name: "Classic Cheeseburger",
             description: "Beef patty, cheese, lettuce, tomato",
             image_url:
@@ -46,6 +47,7 @@ const dummyData = {
             customizations: ["Extra Cheese", "Coke", "Fries", "Onions", "Bacon"],
         },
         {
+            id: "pepperoni-pizza",
             name: "Pepperoni Pizza",
             description: "Loaded with cheese and pepperoni slices",
             image_url:
@@ -64,6 +66,7 @@ const dummyData = {
             ],
         },
         {
+            id: "bean-burrito",
             name: "Bean Burrito",
             description: "Stuffed with beans, rice, salsa",
             image_url:
@@ -76,6 +79,7 @@ const dummyData = {
             customizations: ["Jalapeños", "Iced Tea", "Fries", "Salad"],
         },
         {
+            id: "bbq-bacon-burger",
             name: "BBQ Bacon Burger",
             description: "Smoky BBQ sauce, crispy bacon, cheddar",
             image_url:
@@ -88,6 +92,7 @@ const dummyData = {
             customizations: ["Onions", "Fries", "Coke", "Bacon", "Avocado"],
         },
         {
+            id: "chicken-caesar-wrap",
             name: "Chicken Caesar Wrap",
             description: "Grilled chicken, lettuce, Caesar dressing",
             image_url:
@@ -100,6 +105,7 @@ const dummyData = {
             customizations: ["Extra Cheese", "Coke", "Potato Wedges", "Tomatoes"],
         },
         {
+            id: "grilled-veggie-sandwich",
             name: "Grilled Veggie Sandwich",
             description: "Roasted veggies, pesto, cheese",
             image_url:
@@ -112,6 +118,7 @@ const dummyData = {
             customizations: ["Mushrooms", "Olives", "Mozzarella Sticks", "Iced Tea"],
         },
         {
+            id: "double-patty-burger",
             name: "Double Patty Burger",
             description: "Two juicy beef patties and cheese",
             image_url:
@@ -130,6 +137,7 @@ const dummyData = {
             ],
         },
         {
+            id: "paneer-tikka-wrap",
             name: "Paneer Tikka Wrap",
             description: "Spicy paneer, mint chutney, veggies",
             image_url:
@@ -142,6 +150,7 @@ const dummyData = {
             customizations: ["Jalapeños", "Tomatoes", "Salad", "Fries", "Iced Tea"],
         },
         {
+            id: "mexican-burrito-bowl",
             name: "Mexican Burrito Bowl",
             description: "Rice, beans, corn, guac, salsa",
             image_url:
@@ -154,6 +163,7 @@ const dummyData = {
             customizations: ["Avocado", "Sweet Corn", "Salad", "Iced Tea"],
         },
         {
+            id: "spicy-chicken-sandwich",
             name: "Spicy Chicken Sandwich",
             description: "Crispy chicken, spicy sauce, pickles",
             image_url:
@@ -172,6 +182,7 @@ const dummyData = {
             ],
         },
         {
+            id: "classic-margherita-pizza",
             name: "Classic Margherita Pizza",
             description: "Tomato, mozzarella, fresh basil",
             image_url:
@@ -184,6 +195,7 @@ const dummyData = {
             customizations: ["Extra Cheese", "Olives", "Coke", "Garlic Bread"],
         },
         {
+            id: "protein-power-bowl",
             name: "Protein Power Bowl",
             description: "Grilled chicken, quinoa, veggies",
             image_url:
@@ -196,6 +208,7 @@ const dummyData = {
             customizations: ["Avocado", "Salad", "Sweet Corn", "Iced Tea"],
         },
         {
+            id: "paneer-burrito",
             name: "Paneer Burrito",
             description: "Paneer cubes, spicy masala, rice, beans",
             image_url:
@@ -208,6 +221,7 @@ const dummyData = {
             customizations: ["Jalapeños", "Fries", "Garlic Bread", "Coke"],
         },
         {
+            id: "chicken-club-sandwich",
             name: "Chicken Club Sandwich",
             description: "Grilled chicken, lettuce, cheese, tomato",
             image_url:

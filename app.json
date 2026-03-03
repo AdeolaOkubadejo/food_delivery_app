@@ -7,9 +7,12 @@
     "icon": "./assets/images/icon.png",
     "scheme": "fooddelivery",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.adeolaokubadejo.fooddelivery",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "web": {
       "bundler": "metro",
@@ -36,13 +39,26 @@
         {
           "url": "https://sentry.io/",
           "project": "react-native_food-ordering",
-          "organization": "adeola-okubadejo"
+          "organization": "adeola-okubadejo",
+          "uploadSourcemaps": false
         }
-      ]
+      ],
+      "expo-secure-store",
+      "expo-build-properties",
+      "@sentry/react-native"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "17ab2370-0c68-4a97-a156-770cbadcf6b1"
+      }
+    },
+    "android": {
+      "package": "com.adeolaokubadejo.food_delivery"
     }
   }
 }
