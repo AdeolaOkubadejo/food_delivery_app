@@ -24,9 +24,14 @@ from datetime import datetime, timedelta
 from jose import JWTError, jwt
 import bcrypt
 
-SQLALCHEMY_DATABASE_URL = "postgresql://localhost/food_delivery"
+from os import getenv
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+DATABASE_URL = getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL env var not set - check Render environment variables!")
+
+engine = create_engine(DATABASE_URL)
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
