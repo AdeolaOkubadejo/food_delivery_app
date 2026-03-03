@@ -1,50 +1,64 @@
-# Welcome to your Expo app 👋
+<img width="117" height="255" alt="screenshots:home" src="https://github.com/user-attachments/assets/b188ab85-8917-4844-bb3f-78976f37ab43" />
+<img width="117" height="255" alt="screenshots:recommended" src="https://github.com/user-attachments/assets/1bfa4145-30e0-4212-b366-5417a28a54c8" />
+<img width="117" height="255" alt="screenshots:search" src="https://github.com/user-attachments/assets/7d14b1c6-18c0-4053-b776-333494c1ea82" />
+<img width="117" height="255" alt="screenshots:profile" src="https://github.com/user-attachments/assets/7ffb450e-312d-41d3-9e0d-640bab92f51b" />
+<img width="117" height="255" alt="screenshots:login" src="https://github.com/user-attachments/assets/606e85af-d4f8-4ef8-b6f8-5c15e5e4e3d0" />
+<img width="117" height="255" alt="signupscreenshot" src="https://github.com/user-attachments/assets/5655940c-778b-4dcd-aec6-9b8b63769920" />
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+https://github.com/user-attachments/assets/711f98d6-7b15-4c28-aaee-d0a14255a4b6
 
-## Get started
 
-1. Install dependencies
+# Food Delivery App – Full-Stack Mobile MVP
 
-   ```bash
-   npm install
-   ```
+A complete food delivery mobile app built with **React Native (Expo)** for the frontend and **FastAPI + PostgreSQL** for the backend. Includes authentication, real database menu, personalized recommendations, cart, profile, and polished UI.
 
-2. Start the app
 
-   ```bash
-   npx expo start
-   ```
+## Features Built
 
-In the output, you'll find options to open the app in a
+- JWT authentication (register/login, auto-login with SecureStore)
+- Real PostgreSQL menu (seeded with real food items + images)
+- Cosine similarity "Recommended for You" (based on cart contents)
+- Cart persistence (add/remove/increase/decrease)
+- Profile showing real user data (name, email, phone/address)
+- Clean, responsive UI with NativeWind + Tailwind CSS
+- Production Android build (AAB/APK) via Expo EAS
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Tech Stack
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+**Frontend**  
+- Expo (SDK 50+)  
+- React Native  
+- Expo Router (file-based routing)  
+- Zustand (state management)  
+- Expo SecureStore (token storage)  
+- NativeWind + Tailwind CSS  
+- React Native Safe Area Context  
 
-## Get a fresh project
+**Backend**  
+- FastAPI (Python)  
+- SQLAlchemy + PostgreSQL  
+- PyJWT (authentication)  
+- Uvicorn server  
 
-When you're ready, run:
+**Tools & Services**  
+- Expo EAS (builds & distribution)  
 
+
+
+
+- GitHub (version control)  
+- (Planned: Render for live backend, Cloudinary for images)
+
+## How to Run Locally
+
+### Backend
 ```bash
-npm run reset-project
-```
+cd backend
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+cd frontend
+npm install
+npx expo start --clear
+# Press i (iOS simulator) or a (Android emulator)
