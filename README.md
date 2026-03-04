@@ -40,25 +40,32 @@ A complete food delivery mobile app built with **React Native (Expo)** for the f
 - PyJWT (authentication)  
 - Uvicorn server  
 
-**Tools & Services**  
-- Expo EAS (builds & distribution)  
+## Tools & Services
+
+- Expo EAS (builds & distribution – Android AAB/APK)
+- Render (live backend + free Postgres DB)
+- GitHub (version control)
+- (Planned: Cloudinary for dynamic images)
 
 
+## How to Test Live
+
+1. Open https://food-delivery-app-2ch2.onrender.com/docs → see Swagger UI  
+2. Register/login via API → get token  
+3. On phone: run `npx expo start -c` → connect dev client → login with same credentials  
+4. Home loads real menu from Render DB
 
 
-- GitHub (version control)  
-- (Planned: Render for live backend, Cloudinary for images)
+  ## Live API Demo
 
-## How to Run Locally
+Test the backend live: https://food-delivery-app-2ch2.onrender.com/docs
 
-### Backend
-```bash
-cd backend
-source venv/bin/activate
-pip install -r requirements.txt
-uvicorn main:app --reload
+- Use Swagger UI to register/login and fetch menu
+- Try POST /account/register (email/password)
+- Then POST /account/session to login
+- GET /menu to see real food items from Postgres DB
 
-cd frontend
-npm install
-npx expo start --clear
-# Press i (iOS simulator) or a (Android emulator)
+**Mobile App** (Android development build):  
+  Open this link on your Android phone to install the dev build:  
+  https://expo.dev/accounts/adeolaokubadejo/projects/food_delivery/builds/5fa9d9e7-cfd7-44b6-b329-3e8cc9b7297a  
+  (After install → run `npx expo start` on Mac or use local QR to connect)
