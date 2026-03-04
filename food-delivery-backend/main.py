@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
-load_dotenv()  # MUST be first line
-
+load_dotenv()
 import os
 
 JWT_SECRET = "iloveyamandeggsaucesomuchthatieatiteveryday"  # hardcoded for test
