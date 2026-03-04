@@ -23,7 +23,6 @@ from datetime import datetime, timedelta
 
 from jose import JWTError, jwt
 import bcrypt
-r
 from os import getenv
 
 DATABASE_URL = getenv("DATABASE_URL")
