@@ -23,7 +23,7 @@ from datetime import datetime, timedelta
 
 from jose import JWTError, jwt
 import bcrypt
-
+r
 from os import getenv
 
 DATABASE_URL = getenv("DATABASE_URL")
@@ -47,11 +47,12 @@ class UserModel(Base):
     address = Column(String)             # NEW - can be NULL
     created_at = Column(DateTime, default=datetime.utcnow)
 
-app = FastAPI(title="Food Delivery - Your Backend")
+app = FastAPI()
 
+# Add CORS middleware (this allows the mobile app to talk to the backend)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # For testing — allows all origins (safe on Render for now)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
