@@ -5,7 +5,7 @@ import { useCartStore } from "@/store/cart.store";
 const MenuCard = ({ item }: { item: MenuItem }) => {
     const { addItem } = useCartStore();
 
-    // Generate a safe ID from name (kebab-case, unique enough for cart)
+
     const safeId = item.name.toLowerCase().replace(/\s+/g, '-');
 
     return (

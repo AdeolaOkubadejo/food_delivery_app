@@ -38,11 +38,11 @@ export default function Index() {
         fetch(`${process.env.EXPO_PUBLIC_API_URL}/menu`)
             .then(res => res.json())
             .then((data: MenuItem[]) => setMenuItems(data))
-            .catch(err => console.log('Menu fetch error:', err))
+            .catch(err => console.error('Menu fetch error:', err))
     }, [])
 
-    // Build user profile vector from current cart (or default if empty)
-    const userProfile = [0.5, 0.5, 0.5, 0.5, 0.5] // default neutral [spicy, meat, cheese, veg, price]
+    // Build user profile vector from current cart
+    const userProfile = [0.5, 0.5, 0.5, 0.5, 0.5]
 
     if (items.length > 0) {
         const totals = items.reduce((acc, item) => {
@@ -58,7 +58,7 @@ export default function Index() {
         userProfile[1] = totals[1] / items.length
         userProfile[2] = totals[2] / items.length
         userProfile[3] = totals[3] / items.length
-        userProfile[4] = totals[4] / items.length / 50 // normalize price
+        userProfile[4] = totals[4] / items.length / 50
     }
 
     // Rank real menu items by similarity to user profile
@@ -93,7 +93,7 @@ export default function Index() {
                 <CartButton />
             </View>
 
-            {/* Main content with bottom padding to avoid tab bar overlap */}
+
             <FlatList
                 data={[
                     { type: 'combos' },
@@ -147,14 +147,13 @@ export default function Index() {
                                     contentContainerStyle={{ paddingRight: 20 }}
                                     renderItem={({ item }) => (
                                         <TouchableOpacity
-                                            onPress={() => console.log('Tapped recommended:', item.name)}
+                                            onPress={() => console.log('Tapped recommended:', item.name)}  // kept minimal for now
                                             className="w-44 mr-3 bg-gray-50 rounded-xl overflow-hidden shadow-sm"
                                         >
                                             <Image
                                                 source={{ uri: item.image_url || 'https://via.placeholder.com/150?text=No+Image' }}
                                                 className="w-full h-28"
                                                 resizeMode="cover"
-                                                onError={() => console.log('Image failed:', item.image_url)}
                                             />
 
                                             <View className="p-2.5">

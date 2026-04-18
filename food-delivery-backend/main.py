@@ -2,8 +2,8 @@ from dotenv import load_dotenv
 load_dotenv()
 import os
 
-JWT_SECRET = "iloveyamandeggsaucesomuchthatieatiteveryday"  # hardcoded for test
-print("Using hardcoded JWT_SECRET:", JWT_SECRET)  # confirm
+JWT_SECRET = "iloveyamandeggsaucesomuchthatieatiteveryday"
+print("Using hardcoded JWT_SECRET:", JWT_SECRET)
 if JWT_SECRET is None:
     raise ValueError("JWT_SECRET not found in .env file - check backend .env!")
 
@@ -47,10 +47,10 @@ class UserModel(Base):
 
 app = FastAPI()
 
-# Add CORS middleware (this allows the mobile app to talk to the backend)
+# Add CORS middleware to allow the mobile app to talk to the backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # For testing — allows all origins (safe on Render for now)
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -154,9 +154,6 @@ def seed_data():
 
 
 
-# ... your existing imports and code (UserModel, /account, /account/session, /me) ...
-
-# NEW: Menu Item model (matches your dummyData structure)
 class MenuItemModel(Base):
     __tablename__ = "menu_items"
 
